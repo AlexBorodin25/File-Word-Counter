@@ -1,13 +1,15 @@
 import string
 from collections import Counter
 
-def load_stopwords(filename="stopwords.txt")
+def load_stopwords(filename="stopwords.txt"):
     try:
         with open(filename, "r") as f:
             return {line.strip().lower() for line in f if line.strip()}
     except FileNotFoundError:
         print("Stopwords file not found")
         return set()
+
+STOPWORDS = load_stopwords()
 
 def read_file(filename):
     try:
