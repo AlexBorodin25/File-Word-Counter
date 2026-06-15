@@ -51,7 +51,7 @@ def main():
         return
 
     word_freq = count_word_frequency(text)
-    total_words = sum(word_freq.values())
+    total_words = len([clean_word(word) for word in text.split() if clean_word(word)])
     sentence_count = count_sentences(text)
 
     print("File Word Counter")
@@ -59,7 +59,7 @@ def main():
     print("Total Sentences: ", sentence_count)
 
     print("Most Common Words:")
-    for word, count in word_freq.most_common(10):
+    for word, count in word_freq.most_common(5):
         print(f"{word}: {count}")
 
 if __name__ == "__main__":
