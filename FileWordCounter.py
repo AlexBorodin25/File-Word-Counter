@@ -1,9 +1,14 @@
+import os
 import string
 from collections import Counter
 
+script_dir = os.path.dirname(__file__)
+
 def load_stopwords(filename="stopwords.txt"):
+    file_path = os.path.join(script_dir, filename)
+
     try:
-        with open(filename, "r") as f:
+        with open(file_path, "r") as f:
             return {line.strip().lower() for line in f if line.strip()}
     except FileNotFoundError:
         print("Stopwords file not found")
