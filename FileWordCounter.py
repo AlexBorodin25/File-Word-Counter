@@ -17,8 +17,10 @@ def load_stopwords(filename="stopwords.txt"):
 STOPWORDS = load_stopwords()
 
 def read_file(filename):
+    file_path = os.path.join(script_dir, filename)
+
     try:
-        with open(filename, 'r') as f:
+        with open(file_path, 'r') as f:
             return f.read()
     except FileNotFoundError:
         print("File not found.")
