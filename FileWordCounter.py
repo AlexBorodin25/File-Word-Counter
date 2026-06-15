@@ -13,9 +13,30 @@ def read_file(filename):
         print("File not found.")
         return None
 
+def clean_word(word):
+    return word.strip(string.punctuation).lower()
+
 def count_word_frequency(text):
     words = text.split()
     freq = Counter()
 
     for word in words:
+        cleaned_word = clean_word(word)
+        if cleaned_word and cleaned_word not in STOPWORDS:
+            freq[cleaned_word] += 1
+
+    return freq
+
+def count_sentences(text):
+    sentence_end = ".!?"
+    count = 0
+
+    for char in text:
+        if char in sentence_end:
+            count += 1
+
+    return count
+
+
+
 
